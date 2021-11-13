@@ -13,6 +13,8 @@ const connection = new WebSocket(
 var lastReload = false
 
 chrome.runtime.onInstalled.addListener(function (details) {
+  console.log('chrome.runtime.onInstalled callback runs')
+
   lastReload = Date.now()
 })
 
@@ -30,6 +32,8 @@ connection.onmessage = (e) => {
       var currentTime = Date.now()
 
       if (lastReload && currentTime - lastReload > 0) {
+        console.log("reloading extension")
+
         // reload time threshold
         chrome.runtime.reload()
       }

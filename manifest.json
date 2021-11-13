@@ -1,10 +1,11 @@
 {
   "name": "A Extension demo",
-  "description": "Build an Extension!",
+  "description": "Build an Extension",
   "version": "1.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
-    "service_worker": "bg-wrapper.js"
+    "scripts": ["chromereload.js", "background.js"],
+    "persistent": true
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
